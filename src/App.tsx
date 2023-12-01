@@ -1,7 +1,7 @@
-import PrimaryLayout from "./layouts/primary/Layout";
+import styles from "./App.module.scss";
 
 const App = () => {
-  return <PrimaryLayout>&nbsp;</PrimaryLayout>;
+  return <div className={styles.container}></div>;
 };
 
 export default App;

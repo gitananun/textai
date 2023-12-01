@@ -3,7 +3,7 @@ import BackgroundImage from "@assets/background.png";
 import LayoutNavbar from "../components/navbar/Navbar";
 
 type Props = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 };
 
 const PrimaryLayout = (props: Props) => {
