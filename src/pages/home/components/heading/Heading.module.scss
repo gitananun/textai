@@ -7,6 +7,10 @@
 
   margin-top: 200px;
 
+  @media (max-width: theme("screens.md")) {
+    margin-top: 80px;
+  }
+
   .logo {
     width: 250px;
   }
