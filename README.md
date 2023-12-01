@@ -1,4 +1,6 @@
-# TextAI - The eyes chico they never lie...
+# TextAI - Words into Worlds 💬 🌎
+
+> "The eyes chico they never lie..." - Tony Montana
 
 ## Overview
 
