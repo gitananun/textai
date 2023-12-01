@@ -1,0 +1,55 @@
+.navbar {
+  padding: 24px 36px;
+  border-radius: theme("borderRadius.md");
+
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 0px 0px 5px theme("colors.indigo.950");
+
+  width: 80%;
+  left: 50%;
+  position: fixed;
+  transform: translateX(-50%);
+  border: 0.5px solid theme("colors.slate.800");
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: theme("screens.md")) {
+    width: 100%;
+    margin-top: 0;
+    border-radius: 0;
+    border-width: 0;
+    border-bottom-width: 0.5px;
+  }
+
+  .leading {
+    width: 100px;
+  }
+
+  .trailing {
+    display: flex;
+    align-items: center;
+    gap: theme("gap.12");
+
+    font-weight: 500;
+    text-transform: capitalize;
+
+    .item {
+      padding-right: 40px;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      border-right: 1px solid theme("colors.slate.800");
+
+      &:hover {
+        color: theme("colors.indigo.400");
+      }
+
+      &:last-child {
+        border-right: none;
+        padding-right: 20px;
+      }
+    }
+  }
+}

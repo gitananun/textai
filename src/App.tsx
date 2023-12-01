@@ -1,9 +1,7 @@
+import PrimaryLayout from "./layouts/primary/Layout";
+
 const App = () => {
-  return (
-    <div>
-      <h1>TextAI</h1>
-    </div>
-  );
+  return <PrimaryLayout>&nbsp;</PrimaryLayout>;
 };
 
 export default App;
