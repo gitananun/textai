@@ -1,0 +1,38 @@
+.button {
+  font-weight: theme("fontWeight.bold");
+  padding: theme("spacing.3") theme("spacing.8");
+
+  background-color: theme("colors.slate.600");
+
+  border-radius: theme("borderRadius.md");
+  border: 1px solid theme("colors.slate.700");
+
+  display: flex;
+  align-items: center;
+  gap: theme("spacing.3");
+  justify-content: center;
+
+  transition: 0.2s ease-in-out;
+
+  @media (max-width: theme("screens.md")) {
+    font-size: theme("fontSize.sm");
+  }
+
+  &:hover {
+    background-color: theme("colors.slate.500");
+    border-color: theme("colors.slate.600");
+    border-bottom-width: 6px;
+  }
+
+  &.primary {
+    background-color: theme("colors.indigo.800");
+    border-color: theme("colors.indigo.900");
+    color: theme("colors.white");
+
+    &:hover {
+      background-color: theme("colors.indigo.700");
+      border-color: theme("colors.indigo.900");
+      box-shadow: theme("boxShadow.md");
+    }
+  }
+}

@@ -34,4 +34,23 @@
       background-color: rgba($color: rgb(40, 40, 40), $alpha: 0.6);
     }
   }
+
+  .actions {
+    display: flex;
+    gap: theme("gap.5");
+    align-items: center;
+    justify-content: center;
+
+    width: 20%;
+
+    @media (max-width: theme("screens.md")) {
+      width: 80%;
+    }
+
+    button {
+      width: 100%;
+    }
+
+    margin-top: theme("margin.1");
+  }
 }

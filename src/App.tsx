@@ -1,10 +1,10 @@
 import styles from "./App.module.scss";
-import HomePageHeading from "./pages/home/components/heading/Heading";
+import HomePageSearch from "./pages/home/components/search/Search";
 
 const App = () => {
   return (
     <div className={styles.container}>
-      <HomePageHeading />
+      <HomePageSearch />
     </div>
   );
 };

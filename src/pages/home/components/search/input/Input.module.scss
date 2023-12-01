@@ -53,5 +53,9 @@
       transform: rotate(25deg);
       box-shadow: theme("boxShadow.xl");
     }
+
+    @media (max-width: theme("screens.md")) {
+      display: none;
+    }
   }
 }

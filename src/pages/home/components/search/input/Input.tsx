@@ -1,11 +1,11 @@
 import { faGhost, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRef } from "react";
-import styles from "./CustomInput.module.scss";
+import styles from "./Input.module.scss";
 
 type Props = {} & React.InputHTMLAttributes<HTMLInputElement>;
 
-const CustomInput = (props: Props) => {
+const HomeSearchInput = (props: Props) => {
   const { ...rest } = props;
 
   const inputRef = useRef<HTMLInputElement>(null);
@@ -24,4 +24,4 @@ const CustomInput = (props: Props) => {
   );
 };
 
-export default CustomInput;
+export default HomeSearchInput;
