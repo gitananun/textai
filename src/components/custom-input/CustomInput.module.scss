@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  margin-top: 24px;
+
+  .prefix {
+    cursor: pointer;
+
+    padding: 12px 20px;
+    background: theme("colors.indigo.700");
+
+    border-radius: theme("borderRadius.xl") 0 0 theme("borderRadius.xl");
+    border: 1px solid theme("colors.indigo.600");
+  }
+
+  .input {
+    outline: none;
+    border-radius: 0 theme("borderRadius.xl") theme("borderRadius.xl") 0;
+
+    width: 30%;
+    padding: theme("padding.3") theme("padding.6");
+    border: 1px solid theme("colors.indigo.600");
+
+    background: rgba(55, 55, 55, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+
+  .suffix {
+    right: 30px;
+    position: relative;
+
+    color: white;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+
+    &:hover {
+      transform: rotate(25deg);
+      box-shadow: theme("boxShadow.xl");
+    }
+  }
+}

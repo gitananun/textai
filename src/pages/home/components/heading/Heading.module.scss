@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  gap: theme("gap.6");
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  margin-top: 200px;
+
+  .logo {
+    width: 250px;
+  }
+
+  .badge {
+    @apply inline-flex items-center font-medium ring-1 ring-inset ring-pink-700/10;
+
+    font-size: theme("fontSize.xs");
+    border-radius: theme("borderRadius.md");
+    padding: theme("padding.2") theme("padding.3");
+
+    color: theme("colors.pink.500");
+    background-color: rgba($color: rgb(40, 40, 40), $alpha: 0.4);
+
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.08);
+      box-shadow: theme("boxShadow.md");
+      background-color: rgba($color: rgb(40, 40, 40), $alpha: 0.6);
+    }
+  }
+}
