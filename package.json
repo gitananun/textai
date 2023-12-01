@@ -18,7 +18,9 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@trivago/prettier-plugin-sort-imports": "^4.3.0"
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "sass": "^1.69.5",
+    "tailwindcss": "^3.3.5"
   },
   "scripts": {
     "start": "react-scripts start",
