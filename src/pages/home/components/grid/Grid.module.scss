@@ -1,0 +1,52 @@
+.container {
+  width: 92%;
+  margin: 140px auto;
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  @media (max-width: theme("screens.md")) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (max-width: theme("screens.sm")) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .item {
+    @apply relative overflow-hidden;
+    cursor: pointer;
+
+    &:hover {
+      .image {
+        transform: scale(1.05);
+      }
+
+      .footer {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    .image {
+      @apply w-full object-cover transition-all;
+      transition: 0.2s ease-in-out;
+      height: 30rem;
+    }
+
+    .footer {
+      @apply absolute bottom-0 top-1/2 flex items-start flex-col justify-end left-0 pb-5 pl-6 pt-2 w-full;
+      background: linear-gradient(0deg, theme("colors.gray.950") -15%, rgba(241, 241, 241, 0) 99%);
+
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.4s ease-in-out;
+
+      .label {
+        font-size: theme("fontSize.base");
+        color: theme("colors.white");
+        font-weight: theme("fontWeight.semibold");
+      }
+    }
+  }
+}
