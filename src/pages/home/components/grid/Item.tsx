@@ -1,3 +1,5 @@
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./Grid.module.scss";
 
 type Props = {
@@ -12,8 +14,12 @@ const HomePageGridItem = (props: Props) => {
     <div className={styles.item}>
       <img alt={label} src={`${imageSrc}`} className={styles.image} />
       <div className={styles.footer}>
-        <div className="flex items-start">
-          <p className={styles.label}>{label}</p>
+        <div className={styles.content}>
+          <div>
+            <p className={styles.label}>{label}</p>
+            <small>Took only 2 minutes</small>
+          </div>
+          <FontAwesomeIcon icon={faDownload} className={styles.icon} />
         </div>
       </div>
     </div>

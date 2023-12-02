@@ -35,17 +35,34 @@
     }
 
     .footer {
-      @apply absolute bottom-0 top-1/2 flex items-start flex-col justify-end left-0 pb-5 pl-6 pt-2 w-full;
+      @apply absolute bottom-0 top-1/2 flex items-start flex-col justify-end left-0 pb-5 px-6 pt-2 w-full;
       background: linear-gradient(0deg, theme("colors.gray.950") -15%, rgba(241, 241, 241, 0) 99%);
 
       opacity: 0;
       visibility: hidden;
       transition: 0.4s ease-in-out;
 
-      .label {
-        font-size: theme("fontSize.base");
-        color: theme("colors.white");
-        font-weight: theme("fontWeight.semibold");
+      .content {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .label {
+          font-size: theme("fontSize.base");
+          color: theme("colors.white");
+          font-weight: theme("fontWeight.semibold");
+        }
+
+        .icon {
+          font-size: theme("fontSize.xl");
+          color: theme("colors.white");
+          transition: 0.2s ease-in-out;
+
+          &:hover {
+            transform: scale(1.2);
+          }
+        }
       }
     }
   }
