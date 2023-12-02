@@ -13,6 +13,7 @@
   justify-content: center;
 
   transition: 0.2s ease-in-out;
+  border-bottom-width: 4px;
 
   @media (max-width: theme("screens.md")) {
     font-size: theme("fontSize.sm");
