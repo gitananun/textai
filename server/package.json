@@ -1,0 +1,31 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "API for TextAI",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gitananun/textai.git"
+  },
+  "keywords": [
+    "idea",
+    "ai",
+    "image",
+    "generate"
+  ],
+  "author": "Tigran Muradyan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gitananun/textai/issues"
+  },
+  "homepage": "https://github.com/gitananun/textai#readme",
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.2"
+  }
+}
