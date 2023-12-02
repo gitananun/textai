@@ -29,7 +29,7 @@
     transition: 0.2s ease-in-out;
 
     &:hover {
-      transform: scale(1.08);
+      transform: scale(1.05);
       box-shadow: theme("boxShadow.md");
       background-color: rgba($color: rgb(40, 40, 40), $alpha: 0.6);
     }
