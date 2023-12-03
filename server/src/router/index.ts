@@ -5,7 +5,7 @@ import imagesRouter from "./images";
 const router = express.Router();
 
 export default (): express.Router => {
-  router.get("/", (_, res) => res.send("Welcome to TextAI!"));
+  router.get("/ping", (_, res) => res.status(200).send("pong"));
 
   imagesRouter(router);
 

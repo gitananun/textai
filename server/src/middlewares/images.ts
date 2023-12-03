@@ -7,9 +7,9 @@ export const isRequestValid = async (
   next: express.NextFunction
 ) => {
   try {
-    const { prompt, width, height, numOutputs } = req.body;
+    const { prompt, width, height } = req.body;
 
-    if (!prompt || !width || !height || !numOutputs) {
+    if (!prompt || !width || !height) {
       return res.status(400).json({ message: "Missing required fields" });
     }
 
