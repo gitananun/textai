@@ -6,6 +6,7 @@ import express from "express";
 import http from "http";
 import mongoose from "mongoose";
 
+import { logFailedRequest } from "../helpers/request";
 import router from "./router/index";
 
 require("dotenv").config();
@@ -22,13 +23,11 @@ const server = http.createServer(app);
 
 const port = process.env.PORT || 8080;
 server.listen(port, () => {
-  console.log(`Server running on localhost:${port}`);
+  console.log(`✅ -> Server running on localhost:${port}`);
 });
 
 mongoose.Promise = Promise;
 mongoose.connect(process.env.DB_MONGO_URI || "");
-mongoose.connection.on("error", (err) => {
-  console.error(`🚫 MongoDB  → ${err.message}`);
-});
+mongoose.connection.on("error", (err) => logFailedRequest(err));
 
 app.use("/", router());
