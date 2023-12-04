@@ -4,7 +4,7 @@ import path from "path";
 import slugify from "slugify";
 import { v1 as uuidv1 } from "uuid";
 
-import { ImageType } from "../db/images";
+import { CraftType } from "../db/crafts";
 import { logFailure } from "../helpers/request";
 
 type ResponseType = {
@@ -15,8 +15,8 @@ type ResponseType = {
   status: string;
 };
 
-export const requestImageByPrompt = async (image: Omit<ImageType, "createdAt">): Promise<ImageType | void> => {
-  const { prompt, width, height, numOutputs } = image;
+export const requestCraftByPrompt = async (craft: Omit<CraftType, "createdAt">): Promise<CraftType | void> => {
+  const { prompt, width, height, numOutputs } = craft;
 
   const requestBody = {
     input: {
@@ -42,13 +42,13 @@ export const requestImageByPrompt = async (image: Omit<ImageType, "createdAt">):
       const { output } = response.data;
       if (!output) return;
 
-      return { ...image, images: output.map((i) => i.image) };
+      return { ...craft, images: output.map((i) => i.image) };
     })
     .catch((error) => logFailure(error));
 };
 
-export const storeImageLocally = async (image: ImageType) => {
-  const { prompt, width, height, numOutputs, images } = image;
+export const storeCraftImagesLocally = async (craft: CraftType) => {
+  const { prompt, width, height, numOutputs, images } = craft;
 
   try {
     const promptSlug = slugify(prompt, { lower: true, strict: true, remove: /[*+~.()'"!:@]/g });
@@ -75,7 +75,7 @@ export const storeImageLocally = async (image: ImageType) => {
       }
     }
 
-    return { ...image, images: imagePaths };
+    return { ...craft, images: imagePaths };
   } catch (error) {
     console.error("Error storing images locally:", error);
   }

@@ -1,8 +1,10 @@
-import { ImageType } from "db/images";
 import express from "express";
 
+import { CraftType } from "../db/crafts";
+import { handleControllerFailure } from "../helpers/request";
+
 export const isRequestValid = async (
-  req: express.Request<{}, {}, ImageType>,
+  req: express.Request<{}, {}, CraftType>,
   res: express.Response,
   next: express.NextFunction
 ) => {
@@ -15,7 +17,6 @@ export const isRequestValid = async (
 
     next();
   } catch (error) {
-    console.error(error);
-    return res.status(500).json({ message: "Internal server error" });
+    handleControllerFailure(error, res);
   }
 };

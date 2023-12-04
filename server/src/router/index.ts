@@ -1,13 +1,13 @@
 import express from "express";
 
-import imagesRouter from "./images";
+import craftsRouter from "./crafts";
 
 const router = express.Router();
 
 export default (): express.Router => {
   router.get("/ping", (_, res) => res.status(200).send("pong"));
 
-  imagesRouter(router);
+  craftsRouter(router);
 
   return router;
 };
