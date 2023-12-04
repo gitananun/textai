@@ -4,8 +4,8 @@ import path from "path";
 import slugify from "slugify";
 import { v1 as uuidv1 } from "uuid";
 
-import { CraftType } from "../db/crafts";
-import { logFailure } from "../helpers/request";
+import { logFailure } from "../../helpers/handlers";
+import { CraftType } from "./db";
 
 type ResponseType = {
   id: string;
@@ -52,7 +52,7 @@ export const storeCraftImagesLocally = async (craft: CraftType) => {
 
   try {
     const promptSlug = slugify(prompt, { lower: true, strict: true, remove: /[*+~.()'"!:@]/g });
-    const directory = path.join(__dirname, "../..", "public/images", promptSlug);
+    const directory = path.join(__dirname, "../../../", "public/images", promptSlug);
 
     if (!fs.existsSync(directory)) fs.mkdirSync(directory, { recursive: true });
 

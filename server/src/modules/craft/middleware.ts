@@ -1,7 +1,7 @@
 import express from "express";
 
-import { CraftType } from "../db/crafts";
-import { handleControllerFailure } from "../helpers/request";
+import { handleControllerFailure } from "../../helpers/handlers";
+import { CraftType } from "./db";
 
 export const isRequestValid = async (
   req: express.Request<{}, {}, CraftType>,

@@ -6,8 +6,8 @@ import express from "express";
 import http from "http";
 import mongoose from "mongoose";
 
-import { logFailure } from "./helpers/request";
-import router from "./router/index";
+import { logFailure } from "./helpers/handlers";
+import router from "./router";
 
 require("dotenv").config();
 
