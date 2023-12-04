@@ -1,16 +1,16 @@
 import mongoose from "mongoose";
 
 export type ImageType = {
-  src?: string;
   width: number;
   prompt: string;
   height: number;
   createdAt: Date;
+  images?: string[];
   numOutputs: number;
 };
 
 const ImageSchema = new mongoose.Schema<ImageType>({
-  src: { type: String, required: false },
+  images: [{ type: String }],
   prompt: { type: String, required: true },
   width: { type: Number, required: true },
   height: { type: Number, required: true },

@@ -1,8 +1,7 @@
 import express from "express";
 
-import { storeImageLocally } from "../actions/images";
+import { requestImageByPrompt, storeImageLocally } from "../actions/images";
 import { ImageType, createImage, getImages, getImagesBySearch } from "../db/images";
-import { requestImageByPrompt } from "../external/runpod";
 import { handleControllerFailure } from "../helpers/request";
 
 export const create = async (req: express.Request<{}, {}, ImageType>, res: express.Response) => {
@@ -11,7 +10,9 @@ export const create = async (req: express.Request<{}, {}, ImageType>, res: expre
     const numOutputs = req.body.numOutputs || 1;
 
     const generatedImage = await requestImageByPrompt({ prompt, width, height, numOutputs });
-    if (!generatedImage || !generatedImage.src) return res.status(500).json({ message: "Image Generation Failed!" });
+
+    if (!generatedImage || !generatedImage.images.length)
+      return res.status(500).json({ message: "Image Generation Failed!" });
 
     const storedImage = await storeImageLocally(generatedImage);
     const savedImage = await createImage(storedImage);
