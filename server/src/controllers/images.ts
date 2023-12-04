@@ -1,9 +1,9 @@
 import express from "express";
 
 import { storeImageLocally } from "../actions/images";
-import { ImageType, createImage } from "../db/images";
+import { ImageType, createImage, getImages, getImagesBySearch } from "../db/images";
 import { requestImageByPrompt } from "../external/runpod";
-import { logFailure } from "../helpers/request";
+import { handleControllerFailure } from "../helpers/request";
 
 export const create = async (req: express.Request<{}, {}, ImageType>, res: express.Response) => {
   try {
@@ -18,7 +18,22 @@ export const create = async (req: express.Request<{}, {}, ImageType>, res: expre
 
     return res.status(201).json({ savedImage }).end();
   } catch (error) {
-    logFailure(error);
-    return res.status(500).json({ message: "Internal server error" });
+    handleControllerFailure(error, res);
+  }
+};
+
+export const fetch = async (req: express.Request, res: express.Response) => {
+  try {
+    const { search } = req.query;
+
+    if (search) {
+      const images = await getImagesBySearch(search.toString());
+      return res.status(200).json({ images }).end();
+    }
+
+    const images = await getImages();
+    return res.status(200).json({ images }).end();
+  } catch (error) {
+    handleControllerFailure(error, res);
   }
 };
