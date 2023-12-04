@@ -1,7 +1,7 @@
 import express from "express";
 
 import { handleControllerFailure } from "../../helpers/handlers";
-import { requestCraftByPrompt, storeCraftImagesLocally } from "./action";
+import { requestCraftByPrompt, storeCraftImagesLocally } from "./actions";
 import { CraftType, createCraft, getCrafts, getCraftsBySearch } from "./db";
 
 export const create = async (req: express.Request<{}, {}, CraftType>, res: express.Response) => {

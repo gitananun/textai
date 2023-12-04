@@ -1,6 +1,6 @@
 import express from "express";
 
-import craftsRouter from "./modules/craft/router";
+import craftsRouter from "./modules/crafts/routers";
 
 const router = express.Router();
 
