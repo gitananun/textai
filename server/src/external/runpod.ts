@@ -1,7 +1,7 @@
 import axios from "axios";
 
-import { logFailedRequest } from "../../helpers/request";
 import { ImageType } from "../db/images";
+import { logFailure } from "../helpers/request";
 
 type ResponseType = {
   id: string;
@@ -11,7 +11,7 @@ type ResponseType = {
   status: string;
 };
 
-export const requestTextToImage = async (image: Omit<ImageType, "createdAt">): Promise<ImageType | void> => {
+export const requestImageByPrompt = async (image: Omit<ImageType, "createdAt">): Promise<ImageType | void> => {
   const { prompt, width, height, numOutputs } = image;
 
   const requestBody = {
@@ -40,5 +40,5 @@ export const requestTextToImage = async (image: Omit<ImageType, "createdAt">): P
 
       return { ...image, src: output[0].image };
     })
-    .catch((error) => logFailedRequest(error));
+    .catch((error) => logFailure(error));
 };

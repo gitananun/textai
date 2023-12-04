@@ -1,22 +1,24 @@
 import express from "express";
 
-import { logFailedRequest } from "../../helpers/request";
+import { storeImageLocally } from "../actions/images";
 import { ImageType, createImage } from "../db/images";
-import { requestTextToImage } from "../external/runpod";
+import { requestImageByPrompt } from "../external/runpod";
+import { logFailure } from "../helpers/request";
 
 export const create = async (req: express.Request<{}, {}, ImageType>, res: express.Response) => {
   try {
     const { prompt, width, height } = req.body;
     const numOutputs = req.body.numOutputs || 1;
 
-    requestTextToImage({ prompt, width, height, numOutputs }).then(async (image) => {
-      if (!image || !image.src) return res.status(500).json({ message: "Image Generation Failed! Please try again." });
+    const generatedImage = await requestImageByPrompt({ prompt, width, height, numOutputs });
+    if (!generatedImage || !generatedImage.src) return res.status(500).json({ message: "Image Generation Failed!" });
 
-      const generatedImage = await createImage({ prompt, width, height, numOutputs, src: image.src });
-      return res.status(201).json({ generatedImage }).end();
-    });
+    const storedImage = await storeImageLocally(generatedImage);
+    const savedImage = await createImage(storedImage);
+
+    return res.status(201).json({ savedImage }).end();
   } catch (error) {
-    logFailedRequest(error);
+    logFailure(error);
     return res.status(500).json({ message: "Internal server error" });
   }
 };
