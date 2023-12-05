@@ -17,32 +17,11 @@ The project aims to provide a seamless and intuitive experience for users to eff
 - **Algorithm Diversity:** Utilizes multiple AI models to offer a wide variety of image outputs.
 - **Scalability:** Designed to handle varying levels of user traffic and text inputs efficiently.
 
-## Installation
-
-To run this project locally, follow these steps:
-
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/gitananun/textai.git
-   ```
-2. **Install Dependencies:**
-   ```bash
-    cd textai
-    npm install
-   ```
-3. **Run the Application:**
-   ```bash
-   npm start
-   ```
-4. **Open the Application:**
-   ```bash
-   http://localhost:3000
-   ```
-
 ## Tech Stack
 
 - **Frontend:** React/TypeScript, Redux, Tailwind CSS
 - **Backend:** Node.js, Express.js
+- **Database:** MongoDB
 - **API:** [RunPod API](https://docs.runpod.io/reference/stable-diffusion-v1)
 
 > We hope you enjoy using TextAI as much as we enjoyed building it! If you have any questions or feedback, please feel free to reach out to us 🤩
