@@ -8,9 +8,11 @@ export interface ICreateCraftPayload {
   numOutputs: number;
 }
 
-export const fetchCrafts = async (): Promise<ICraft[]> => {
+export const fetchCrafts = async (search?: string): Promise<ICraft[]> => {
+  const query = search ? `?search=${search}` : "";
+
   return axiosInstance()
-    .get("/crafts")
+    .get("/crafts" + query)
     .then((res): ICraft[] => {
       if (!res) throw new Error();
 

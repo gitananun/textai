@@ -3,13 +3,16 @@ import Logo from "@assets/logo.png";
 import { BRAND_NAME } from "@/config/public";
 import HomeSearchInput from "./input/Input";
 import CustomButton from "@/components/custom-button/CustomButton";
-import { dispatchGenerateCraftAction } from "@/store/crafts/actions";
+import {
+  dispatchFetchCraftsAction,
+  dispatchGenerateCraftAction,
+} from "@/store/crafts/actions";
 import { useRef } from "react";
 
 const HomePageSearch = () => {
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const handleOnSubmit = () => {
+  const handleGenerate = () => {
     const prompt = inputRef.current?.value;
     if (!prompt) return;
 
@@ -20,6 +23,8 @@ const HomePageSearch = () => {
       numOutputs: 1,
     });
   };
+
+  const handleSearch = () => dispatchFetchCraftsAction(inputRef.current?.value);
 
   return (
     <div className={styles.container}>
@@ -32,8 +37,8 @@ const HomePageSearch = () => {
       />
 
       <div className={styles.actions}>
-        <CustomButton label="Search" primary />
-        <CustomButton label="Generate" onClick={handleOnSubmit} />
+        <CustomButton label="Search" primary onClick={handleSearch} />
+        <CustomButton label="Generate" onClick={handleGenerate} />
       </div>
     </div>
   );

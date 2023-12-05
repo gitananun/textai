@@ -13,7 +13,7 @@ const HomePageGridItem = (props: Props) => {
   const { craft } = props;
   const { prompt, createdAt, images } = craft;
 
-  const handleOnDownload = (image: string) => {
+  const handleDownload = (image: string) => {
     saveAs(image, prompt);
     toast.success("You've just downloaded a craft!");
   };
@@ -32,7 +32,7 @@ const HomePageGridItem = (props: Props) => {
               <FontAwesomeIcon
                 icon={faDownload}
                 className={styles.icon}
-                onClick={() => handleOnDownload(src)}
+                onClick={() => handleDownload(src)}
               />
             </div>
           </div>
