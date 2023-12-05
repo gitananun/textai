@@ -8,6 +8,7 @@ import {
   dispatchGenerateCraftAction,
 } from "@/store/crafts/actions";
 import { useRef } from "react";
+import toast from "react-hot-toast";
 
 const HomePageSearch = () => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -16,12 +17,16 @@ const HomePageSearch = () => {
     const prompt = inputRef.current?.value;
     if (!prompt) return;
 
+    toast.loading("Generating crafts... 🤩", {
+      duration: 4000,
+    });
+
     dispatchGenerateCraftAction({
       prompt: prompt,
       width: 512,
       height: 512,
       numOutputs: 1,
-    });
+    }).then(() => toast.success("Crafts generated! Check the grid below 👇"));
   };
 
   const handleSearch = () => dispatchFetchCraftsAction(inputRef.current?.value);

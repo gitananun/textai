@@ -7,10 +7,11 @@ import toast from "react-hot-toast";
 
 type Props = {
   craft: ICraft;
+  handleImageModal: (src: string) => void;
 };
 
 const HomePageGridItem = (props: Props) => {
-  const { craft } = props;
+  const { craft, handleImageModal } = props;
   const { prompt, createdAt, images } = craft;
 
   const handleDownload = (image: string) => {
@@ -21,7 +22,11 @@ const HomePageGridItem = (props: Props) => {
   return (
     <>
       {images?.map((src) => (
-        <div className={styles.item} key={src}>
+        <div
+          key={src}
+          className={styles.item}
+          onClick={() => handleImageModal(src)}
+        >
           <img alt={prompt} src={src} className={styles.image} />
           <div className={styles.footer}>
             <div className={styles.content}>
