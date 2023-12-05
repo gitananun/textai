@@ -17,16 +17,19 @@ const HomePageSearch = () => {
     const prompt = inputRef.current?.value;
     if (!prompt) return;
 
-    toast.loading("Generating crafts... 🤩", {
-      duration: 4000,
-    });
-
-    dispatchGenerateCraftAction({
-      prompt: prompt,
-      width: 512,
-      height: 512,
-      numOutputs: 1,
-    }).then(() => toast.success("Crafts generated! Check the grid below 👇"));
+    toast.promise(
+      dispatchGenerateCraftAction({
+        prompt: prompt,
+        width: 512,
+        height: 512,
+        numOutputs: 1,
+      }),
+      {
+        loading: `"${prompt}" craft is coming... 🤩`,
+        success: `"${prompt}" craft is ready! Check the grid 👇`,
+        error: `Failed to generate crafts for "${prompt}" 😢`,
+      },
+    );
   };
 
   const handleSearch = () => dispatchFetchCraftsAction(inputRef.current?.value);
