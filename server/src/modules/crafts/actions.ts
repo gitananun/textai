@@ -47,7 +47,7 @@ export const requestCraftByPrompt = async (craft: Omit<CraftType, "createdAt">):
     .catch((error) => logFailure(error));
 };
 
-export const storeCraftImagesLocally = async (craft: CraftType) => {
+export const storeCraftImagesLocally = async (craft: CraftType): Promise<string[]> => {
   const { prompt, width, height, numOutputs, images } = craft;
 
   try {
@@ -75,7 +75,7 @@ export const storeCraftImagesLocally = async (craft: CraftType) => {
       }
     }
 
-    return { ...craft, images: imagePaths };
+    return imagePaths;
   } catch (error) {
     console.error("Error storing images locally:", error);
   }

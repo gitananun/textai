@@ -14,8 +14,10 @@ export const create = async (req: express.Request<{}, {}, CraftType>, res: expre
     if (!generatedCraft || !generatedCraft.images.length)
       return res.status(500).json({ message: "Craft Generation Failed!" });
 
-    const storedCraft = await storeCraftImagesLocally(generatedCraft);
-    const savedCraft = await createCraft(storedCraft);
+    const imagePaths = await storeCraftImagesLocally(generatedCraft);
+    if (imagePaths && imagePaths.length > 0) generatedCraft.images = imagePaths;
+
+    const savedCraft = await createCraft(generatedCraft);
 
     return res.status(201).json({ savedCraft }).end();
   } catch (error) {

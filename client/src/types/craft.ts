@@ -1,3 +1,4 @@
+import { isURL } from "@/utils/helpers";
 import moment from "moment";
 
 export interface ICraft {
@@ -26,8 +27,8 @@ export const craftAdapter = (asset: any): ICraft => {
   )
     throw new Error("Craft: Invalid or missing data provided to adapter");
 
-  const imagePaths = images.map(
-    (image: string) => `${process.env.REACT_APP_API_BASE_URL}/${image}`,
+  const imagePaths = images.map((image: string) =>
+    isURL(image) ? image : `${process.env.REACT_APP_API_BASE_URL}/${image}`,
   );
 
   return {
