@@ -40,8 +40,9 @@ const HomePageSearch = () => {
       <span className={styles.badge}>Try the Next-Gen Text to Image API</span>
       <HomeSearchInput
         name="search"
-        placeholder="Drop your idea here..."
         inputRef={inputRef}
+        onClear={handleSearch}
+        placeholder="Drop your idea here..."
       />
 
       <div className={styles.actions}>
