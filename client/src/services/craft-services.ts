@@ -17,3 +17,15 @@ export const fetchCrafts = async (): Promise<ICraft[]> => {
       return res.data.crafts.map((craft: any) => craftAdapter(craft));
     });
 };
+
+export const generateCraft = async (
+  payload: ICreateCraftPayload,
+): Promise<ICraft> => {
+  return axiosInstance()
+    .post(`/crafts`, payload)
+    .then((res): ICraft => {
+      if (!res) throw new Error();
+
+      return craftAdapter(res.data.savedCraft);
+    });
+};

@@ -17,9 +17,12 @@ export const craftsSlice = createSlice({
     setCrafts: (state, action: PayloadAction<ICraft[]>) => {
       state.crafts = action.payload;
     },
+    addCraft: (state, action: PayloadAction<ICraft>) => {
+      state.crafts.push(action.payload);
+    },
   },
 });
 
-export const { setCrafts } = craftsSlice.actions;
+export const { setCrafts, addCraft } = craftsSlice.actions;
 
 export default craftsSlice.reducer;

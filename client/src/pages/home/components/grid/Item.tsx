@@ -21,7 +21,7 @@ const HomePageGridItem = (props: Props) => {
   return (
     <>
       {images?.map((src) => (
-        <div className={styles.item}>
+        <div className={styles.item} key={src}>
           <img alt={prompt} src={src} className={styles.image} />
           <div className={styles.footer}>
             <div className={styles.content}>
