@@ -1,4 +1,5 @@
 export interface ICraft {
+  id: string;
   width: number;
   prompt: string;
   height: number;
@@ -10,17 +11,30 @@ export interface ICraft {
 export const craftAdapter = (asset: any): ICraft => {
   if (!asset) throw new Error("Craft: No data provided to adapter");
 
-  const { width, prompt, height, createdAt, numOutputs, images } = asset;
+  const { _id, width, prompt, height, createdAt, numOutputs, images } = asset;
 
-  if (!width || !prompt || !height || !createdAt || !numOutputs || !images)
+  if (
+    !_id ||
+    !width ||
+    !prompt ||
+    !height ||
+    !createdAt ||
+    !numOutputs ||
+    !images
+  )
     throw new Error("Craft: Invalid or missing data provided to adapter");
 
+  const imagePaths = images.map(
+    (image: string) => `${process.env.REACT_APP_API_BASE_URL}/${image}`,
+  );
+
   return {
-    width: asset.width,
-    prompt: asset.prompt,
-    height: asset.height,
-    images: asset.images,
-    createdAt: asset.createdAt,
-    numOutputs: asset.numOutputs,
+    id: _id,
+    width: width,
+    prompt: prompt,
+    height: height,
+    images: imagePaths,
+    createdAt: createdAt,
+    numOutputs: numOutputs,
   };
 };
