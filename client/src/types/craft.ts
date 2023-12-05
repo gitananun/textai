@@ -1,9 +1,11 @@
+import moment from "moment";
+
 export interface ICraft {
   id: string;
   width: number;
   prompt: string;
   height: number;
-  createdAt: Date;
+  createdAt: string;
   images?: string[];
   numOutputs: number;
 }
@@ -34,7 +36,7 @@ export const craftAdapter = (asset: any): ICraft => {
     prompt: prompt,
     height: height,
     images: imagePaths,
-    createdAt: createdAt,
     numOutputs: numOutputs,
+    createdAt: moment(createdAt).format("MMMM Do YYYY, h:mm A"),
   };
 };

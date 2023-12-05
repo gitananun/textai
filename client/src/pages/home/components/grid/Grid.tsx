@@ -8,16 +8,11 @@ const HomePageGrid = () => {
 
   return (
     <div className={styles.container}>
-      {crafts.map((craft) => (
-        <HomePageGridItem
-          key={craft.id}
-          label={craft.prompt}
-          imageSrc={
-            craft.images?.[0] ??
-            "https://image.lexica.art/full_webp/9c23ebdc-1238-464d-85af-458a798c5224"
-          }
-        />
-      ))}
+      {crafts.map((craft) => {
+        if (!craft.images?.length) return null;
+
+        return <HomePageGridItem key={craft.id} craft={craft} />;
+      })}
     </div>
   );
 };

@@ -1,28 +1,44 @@
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./Grid.module.scss";
+import { ICraft } from "@/types/craft";
+import saveAs from "file-saver";
+import toast from "react-hot-toast";
 
 type Props = {
-  label: string;
-  imageSrc: string;
+  craft: ICraft;
 };
 
 const HomePageGridItem = (props: Props) => {
-  const { label, imageSrc } = props;
+  const { craft } = props;
+  const { prompt, createdAt, images } = craft;
+
+  const handleOnDownload = (image: string) => {
+    saveAs(image, prompt);
+    toast.success("You've just downloaded a craft!");
+  };
 
   return (
-    <div className={styles.item}>
-      <img alt={label} src={`${imageSrc}`} className={styles.image} />
-      <div className={styles.footer}>
-        <div className={styles.content}>
-          <div>
-            <p className={styles.label}>{label}</p>
-            <small>Took only 2 minutes</small>
+    <>
+      {images?.map((src) => (
+        <div className={styles.item}>
+          <img alt={prompt} src={src} className={styles.image} />
+          <div className={styles.footer}>
+            <div className={styles.content}>
+              <div>
+                <p className={styles.label}>{prompt}</p>
+                <small>{createdAt}</small>
+              </div>
+              <FontAwesomeIcon
+                icon={faDownload}
+                className={styles.icon}
+                onClick={() => handleOnDownload(src)}
+              />
+            </div>
           </div>
-          <FontAwesomeIcon icon={faDownload} className={styles.icon} />
         </div>
-      </div>
-    </div>
+      ))}
+    </>
   );
 };
 
