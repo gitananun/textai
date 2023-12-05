@@ -2,7 +2,8 @@
 
 > "The eyes chico they never lie..." - Tony Montana
 
-Watch the Demo! [![Watch the video](./assets/screenshot.png)](./assets/screen_recording.mov)
+Watch the Demo!
+![Demo](./assets/screen_recording.gif)
 
 ## Overview
 
