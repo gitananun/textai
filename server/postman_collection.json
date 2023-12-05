@@ -1,0 +1,369 @@
+{
+	"info": {
+		"_postman_id": "838ef6b9-b4c1-4838-bb4b-c8d599884e97",
+		"name": "TextAI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7779930"
+	},
+	"item": [
+		{
+			"name": "Crafts",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"prompt\": \"Tim Cook cutting an apple\",\n    \"width\": 512,\n    \"height\": 512,\n    \"numOutputs\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/crafts",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"crafts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ok",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"prompt\": \"Tim Cook cutting an apple\",\n    \"width\": 512,\n    \"height\": 512,\n    \"numOutputs\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/crafts",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"crafts"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "352"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"160-hkZuPu7MvOvU+7r3+DioT4v+ndI\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Dec 2023 15:18:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"savedCraft\": {\n        \"images\": [\n            \"images/tim-cook-cutting-an-apple/512x512-72344510-92b8-11ee-b4c7-4539216c0ec4.png\",\n            \"images/tim-cook-cutting-an-apple/512x512-728460e0-92b8-11ee-b4c7-4539216c0ec4.png\"\n        ],\n        \"prompt\": \"Tim Cook cutting an apple\",\n        \"width\": 512,\n        \"height\": 512,\n        \"numOutputs\": 2,\n        \"_id\": \"656dede25774c5c9f4c33917\",\n        \"createdAt\": \"2023-12-04T15:18:58.809Z\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Fetch",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/crafts",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"crafts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/crafts",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"crafts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "682"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2aa-GtZ5NWwJDIv2ckYSSChtsMtO0wU\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Dec 2023 15:19:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"crafts\": [\n        {\n            \"_id\": \"656dedba5774c5c9f4c33915\",\n            \"images\": [\n                \"images/michael-jackson-dancing/512x512-5a6c9f90-92b8-11ee-b4c7-4539216c0ec4.png\",\n                \"images/michael-jackson-dancing/512x512-5ac8a240-92b8-11ee-b4c7-4539216c0ec4.png\"\n            ],\n            \"prompt\": \"Michael Jackson Dancing\",\n            \"width\": 512,\n            \"height\": 512,\n            \"numOutputs\": 2,\n            \"createdAt\": \"2023-12-04T15:18:18.995Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"656dede25774c5c9f4c33917\",\n            \"images\": [\n                \"images/tim-cook-cutting-an-apple/512x512-72344510-92b8-11ee-b4c7-4539216c0ec4.png\",\n                \"images/tim-cook-cutting-an-apple/512x512-728460e0-92b8-11ee-b4c7-4539216c0ec4.png\"\n            ],\n            \"prompt\": \"Tim Cook cutting an apple\",\n            \"width\": 512,\n            \"height\": 512,\n            \"numOutputs\": 2,\n            \"createdAt\": \"2023-12-04T15:18:58.809Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/crafts?search=tim",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"crafts"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "tim"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/crafts?search=tim",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"crafts"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "tim"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "350"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"15e-GQs68ysaG2Z3Kw7VW8Wfyu7XTig\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Dec 2023 15:19:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"crafts\": [\n        {\n            \"_id\": \"656dede25774c5c9f4c33917\",\n            \"images\": [\n                \"images/tim-cook-cutting-an-apple/512x512-72344510-92b8-11ee-b4c7-4539216c0ec4.png\",\n                \"images/tim-cook-cutting-an-apple/512x512-728460e0-92b8-11ee-b4c7-4539216c0ec4.png\"\n            ],\n            \"prompt\": \"Tim Cook cutting an apple\",\n            \"width\": 512,\n            \"height\": 512,\n            \"numOutputs\": 2,\n            \"createdAt\": \"2023-12-04T15:18:58.809Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Ping",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/ping",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ok",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/ping",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"ping"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "4"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4-DlFKBmK8tp3IY5U9HOJuPUDoGoc\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 03 Dec 2023 05:02:51 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "pong"
+				}
+			]
+		}
+	]
+}
